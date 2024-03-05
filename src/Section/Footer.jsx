@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 export default function Footer() {
     return (
-        <footer className="bg-sky-900 w-full">
+        <footer className="bg-sky-900 w-full mt-auto">
             <div className="container flex justify-between items-center gap-10 py-5">
                 {/* pondok */}
                 <div className="flex flex-col items-center">
@@ -15,7 +15,8 @@ export default function Footer() {
                         </div>
                     </NavLink>
                     <p className="text-white mt-2">
-                        Jl. Krapyak Wetan No.RT.05, Krapyak Kulon, Panggungharjo, Kec. Sewon, Kabupaten Bantul, Daerah Istimewa Yogyakarta 55188
+                        Jl. Krapyak Wetan No.RT.05, Krapyak Kulon, Panggungharjo, <br />
+                        Kec. Sewon, Kabupaten Bantul, Daerah Istimewa Yogyakarta 55188
                     </p>
                 </div>
 

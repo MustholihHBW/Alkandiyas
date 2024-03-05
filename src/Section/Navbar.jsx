@@ -20,8 +20,8 @@ export default function Navbar() {
                 <div className="">
                     <ul className="flex justify-between items-center gap-10 text-white">
                         <li><NavLink to={'/'}>Beranda</NavLink></li>
-                        <li><NavLink to={''}>Pendaftaran</NavLink></li>
-                        <li><NavLink to={''}>Tentang kami</NavLink></li>
+                        <li><NavLink to={'/pendaftaran'}>Pendaftaran</NavLink></li>
+                        <li><NavLink to={'/tentang-kami'}>Tentang kami</NavLink></li>
                         <li><NavLink to={'/article'}>Artikel</NavLink></li>
                     </ul>
                 </div>

@@ -8,6 +8,8 @@ import AdminLogin from './pages/AdminLogin'
 import AdminDashboard from './pages/AdminDashboard'
 import CreatePost from './pages/CreatePost'
 import EditPost from './pages/EditPost'
+import Pendaftaran from './pages/Pendaftaran'
+import TentangKami from './pages/TentangKami'
 
 
 function App() {
@@ -21,6 +23,8 @@ function App() {
         <Route path='/admin' element={<AdminDashboard />} />
         <Route path='admin/create-post' element={<CreatePost />} />
         <Route path='admin/edit-post' element={<EditPost />} />
+        <Route path='/pendaftaran' element={<Pendaftaran />} />
+        <Route path='/tentang-kami' element={<TentangKami />} />
       </Routes>
     </BrowserRouter>
   )
