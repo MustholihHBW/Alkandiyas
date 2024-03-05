@@ -1,24 +1,29 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import Navbar from './Section/Navbar'
-import Footer from './Section/Footer'
-import SectionCatalog from './Section/SectionCatalog'
-import SectionHero from './Section/SectionHero'
-import SectionKurikulum from './Section/SectionKurikulum'
-import SectionHarian from './Section/SectionHarian'
-import SectionRutin from "./Section/SectionRutin"
 
-export default function App() {
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+
+import Home from './pages/Home'
+import Article from './pages/Article'
+import SingleArticle from './pages/SingleArticle'
+import AdminLogin from './pages/AdminLogin'
+import AdminDashboard from './pages/AdminDashboard'
+import CreatePost from './pages/CreatePost'
+import EditPost from './pages/EditPost'
+
+
+function App() {
   return (
-    <>
-      <Navbar />
-      <SectionHero />
-      <SectionKurikulum />
-      <SectionHarian />
-      <SectionRutin />
-      <Footer />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/article' element={<Article />} />
+        <Route path='/article/:id' element={<SingleArticle />} />
+        <Route path='/admin-login' element={<AdminLogin />} />
+        <Route path='/admin' element={<AdminDashboard />} />
+        <Route path='admin/create-post' element={<CreatePost />} />
+        <Route path='admin/edit-post' element={<EditPost />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
+
+export default App

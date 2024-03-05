@@ -11,7 +11,7 @@ export default function SectionKurikulum() {
 
                 {/* kurikulum card */}
                 <div className='flex justify-between items-center gap-5'>
-                    <div className='card border rounded-md'>
+                    <div className='card border rounded-md shadow-xl'>
                         <div className='card-body'>
                             <p className='font-bold text-center text-xl'>
                                 Program Takhosus
@@ -22,7 +22,7 @@ export default function SectionKurikulum() {
                         </div>
                     </div>
 
-                    <div className='card border rounded-md'>
+                    <div className='card border rounded-md shadow-xl'>
                         <div className='card-body'>
                             <p className='font-bold text-center text-xl'>
                                 Program Mahasiswa

@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function SectionHero() {
     return (
-        <section className='bg-blue-200'>
+        <section className=''>
             <div className='container flex flex-col items-center text-center text-neutral-800 py-10'>
                 <h4 className='font-bold text-3xl mb-10'>
                     Selamat Datang di Situs Resmi <br />
