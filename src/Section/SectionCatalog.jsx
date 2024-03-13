@@ -5,13 +5,21 @@ import { getPosts } from '../utils'
 
 export default function SectionCatalog() {
     const [posts, setPosts] = useState([]);
+    const [search, setSearch] = useState('');
 
     async function fetchdata() {
-        const data = await getPosts();
+        const data = await getPosts(search);
         if (data !== false) {
             setPosts(data);
         }
-        console.log(data)
+    }
+
+    // function handle search post
+    function handleSearch(e) {
+        e.preventDefault();
+        console.log('search')
+        console.log(search)
+        fetchdata();
     }
 
     useEffect(() => {
@@ -29,10 +37,12 @@ export default function SectionCatalog() {
 
                 {/* search */}
                 <div className='flex'>
-                    <input type="cari" placeholder='cari' className='border rounded py-2 px-2 w-24 md:w-48' />
-                    <button className='bg-green-500 rounded py-2 px-2 text-white text-sm md:text-base w-10 md:w-20'>
-                        Cari
-                    </button>
+                    <form onSubmit={handleSearch}>
+                        <input onInput={(e) => setSearch(e.target.value)} type="search" placeholder='cari' className='border rounded py-2 px-2 w-24 md:w-48' />
+                        <button className='bg-green-500 rounded py-2 px-2 text-white text-sm md:text-base w-10 md:w-20'>
+                            Cari
+                        </button>
+                    </form>
                 </div>
             </div>
 
