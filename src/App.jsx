@@ -10,6 +10,8 @@ import CreatePost from './pages/CreatePost'
 import EditPost from './pages/EditPost'
 import Pendaftaran from './pages/Pendaftaran'
 import TentangKami from './pages/TentangKami'
+import Example from "./pages/Example"
+import KegiatanHarian from './pages/KegiatanHarian'
 
 
 function App() {
@@ -25,6 +27,9 @@ function App() {
         <Route path='admin/edit-post' element={<EditPost />} />
         <Route path='/pendaftaran' element={<Pendaftaran />} />
         <Route path='/tentang-kami' element={<TentangKami />} />
+        <Route path='/example' element={<Example />} />
+        <Route path='/kegiatan-harian' element={<KegiatanHarian />} />
+        <Route path='/kegiatan-rutin' element={<KegiatanHarian />} />
       </Routes>
     </BrowserRouter>
   )

@@ -1,5 +1,7 @@
 import { NavLink } from "react-router-dom";
 
+import MenuIcon from '../assets/Menu Icon.svg'
+
 export default function Navbar() {
     return (
         <section className="w-full bg-sky-900">
@@ -8,8 +10,8 @@ export default function Navbar() {
                 {/* logo */}
 
                 <NavLink to={'/'} className="flex gap-3">
-                    <img src="https://picsum.photos/100/100" alt="logo alkandiyas" className="rounded-full h-14 w-14" />
-                    <h4 className="font-bold text-xl text-white">
+                    <img src="https://picsum.photos/100/100" alt="logo alkandiyas" className="rounded-full h-10 w-10 md:h-14 md:w-14" />
+                    <h4 className="hidden md:block font-bold text-xl text-white">
                         Pondok Pesantren <br />
                         Alkandiyas Krapyak
                     </h4>
@@ -18,7 +20,8 @@ export default function Navbar() {
 
                 {/* menu navbar */}
                 <div className="">
-                    <ul className="flex justify-between items-center gap-10 text-white">
+                    <img src={MenuIcon} alt="" className="md:hidden h-10 w-10" />
+                    <ul className="hidden gap-10 text-white md:flex justify-between">
                         <li><NavLink to={'/'}>Beranda</NavLink></li>
                         <li><NavLink to={'/pendaftaran'}>Pendaftaran</NavLink></li>
                         <li><NavLink to={'/tentang-kami'}>Tentang kami</NavLink></li>

@@ -6,10 +6,10 @@ export default function SectionSingleArticle() {
         <section className='py-10'>
             <div className='container max-w-screen-lg py-5'>
                 {/* Judul */}
-                <h1 className='font-bold text-4xl text-center mb-10'>Cara mengatasi stres</h1>
+                <h1 className='font-bold text-2xl md:text-4xl text-center mb-5 md:mb-10'>Cara mengatasi stres</h1>
 
                 {/* konten */}
-                <div className='prose-lg prose-headings:font-bold'>
+                <div className='prose-base md:prose-lg prose-headings:font-bold'>
                     <h3>
                         Berikut adalah langkah langkah untuk mengatasi stres
                     </h3>
