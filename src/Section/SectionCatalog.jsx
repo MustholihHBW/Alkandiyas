@@ -42,7 +42,7 @@ export default function SectionCatalog() {
                     // jika data post lebih dari 0, maka tampilkan data post
                     posts.length > 0
                         ? posts.map((item) => {
-                            return (<ArticleCard key={item.id} />)
+                            return (<ArticleCard key={item.id} data={item} />)
                         }) : "kosong"}
             </div>
 
