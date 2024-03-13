@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 import { getPosts } from '../utils'
 
 export default function SectionCatalog() {
-    const [posts, setPosts] = useState(null);
+    const [posts, setPosts] = useState([]);
 
     async function fetchdata() {
         const data = await getPosts();
@@ -38,9 +38,12 @@ export default function SectionCatalog() {
 
             <div className='container grid grid-cols-1 md:grid-cols-4 gap-x-3 md:gap-x-5 gap-y-5 md:gap-y-10'>
 
-                {posts !== null ? posts.map((item) => {
-                    return (<ArticleCard key={item.id} />)
-                }) : "loading"}
+                {
+                    // jika data post lebih dari 0, maka tampilkan data post
+                    posts.length > 0
+                        ? posts.map((item) => {
+                            return (<ArticleCard key={item.id} />)
+                        }) : "kosong"}
             </div>
 
             {/* pagination */}
