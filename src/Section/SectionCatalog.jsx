@@ -7,11 +7,14 @@ import Pagination from '../components/Pagination';
 export default function SectionCatalog() {
     const [posts, setPosts] = useState([]);
     const [search, setSearch] = useState('');
+    const [currentPage, setCurrentPage] = useState(1);
+    const [totalPage, setTotalPage] = useState(0);
 
     async function fetchdata() {
-        const data = await getPosts(search);
+        const data = await getPosts(search, currentPage);
         if (data !== false) {
-            setPosts(data);
+            setPosts(data.data);
+            setTotalPage(data.totalPage)
         }
     }
 
@@ -23,9 +26,19 @@ export default function SectionCatalog() {
         fetchdata();
     }
 
+    // functon handle prev untuk pagination
+    function handlePrev() {
+        setCurrentPage(currentPage - 1)
+    }
+
+    // function handle next untuk pagination
+    function handleNext() {
+        setCurrentPage(currentPage + 1)
+    }
+
     useEffect(() => {
         fetchdata();
-    }, [])
+    }, [currentPage])
     return (
         <section className='flex flex-col justify-center items-center py-10 gap-5'>
             {/* navbar artikel */}
@@ -58,7 +71,7 @@ export default function SectionCatalog() {
             </div>
 
             {/* pagination */}
-            <Pagination />
+            <Pagination currentPage={currentPage} totalPage={totalPage} handlePrev={handlePrev} handleNext={handleNext} />
         </section>
     )
 }
