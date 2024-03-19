@@ -17,6 +17,16 @@ export default function SectionSingleArticle() {
         console.log(data)
     }
 
+    // mendapatkn thumbnail di single artikel
+    let thumbnail = ''
+    if (post !== null) {
+        if (post._embedded['wp:featuredmedia']) {
+            thumbnail = post._embedded['wp:featuredmedia']['0'].source_url
+        } else {
+            thumbnail = 'https://placehold.co/300x200'
+        }
+    }
+
     useEffect(() => {
         fetchdata();
     }, [])
@@ -26,8 +36,8 @@ export default function SectionSingleArticle() {
             <div className='container max-w-screen-lg py-5'>
                 {/* featured image */}
                 <img
-                    className='object-cover aspect-video rounded-xl mb-5'
-                    src={post._embedded['wp:featuredmedia']['0'].source_url}
+                    className='object-cover w-full aspect-video rounded-xl mb-5'
+                    src={thumbnail}
                     alt={"featured image" + post.title.rendered} />
 
                 {/* Judul */}
