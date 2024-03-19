@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import ArticleCard from '../components/ArticleCard'
 import { NavLink } from 'react-router-dom'
 import { getPosts } from '../utils'
+import Pagination from '../components/Pagination';
 
 export default function SectionCatalog() {
     const [posts, setPosts] = useState([]);
@@ -57,11 +58,7 @@ export default function SectionCatalog() {
             </div>
 
             {/* pagination */}
-            <div className="join">
-                <button className="join-item btn">«</button>
-                <button className="join-item btn">Page 1</button>
-                <button className="join-item btn">»</button>
-            </div>
+            <Pagination />
         </section>
     )
 }
