@@ -33,4 +33,24 @@ async function getSinglePost(id) {
     }
 }
 
-export { getPosts, getSinglePost }
+
+// function login
+async function login(username, password) {
+    try {
+        const endpoint = BASE_URL + '/jwt-auth/v1/token'
+        const option = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ username, password })
+        }
+        const res = await fetch(endpoint, option)
+        const data = await res.json()
+        return data
+    } catch (e) {
+        console.log('Error', e);
+    }
+}
+
+export { getPosts, getSinglePost, login }
