@@ -53,4 +53,25 @@ async function login(username, password) {
     }
 }
 
-export { getPosts, getSinglePost, login }
+// check token login
+async function checkAuthToken() {
+    try {
+        const response = await fetch(`${BASE_URL}/jwt-auth/v1/token/validate`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'authorization': `Bearer ${localStorage.getItem('token')}`,
+            },
+        });
+        const data = await response.json();
+        if (data.code === 'jwt_valid_token') {
+            return true;
+        } else {
+            return false;
+        }
+    } catch (e) {
+        console.error('Error:', error);
+    }
+}
+
+export { getPosts, getSinglePost, login, checkAuthToken }

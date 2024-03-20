@@ -1,7 +1,23 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 export default function NavbarAdmin() {
+    const logout = useNavigate()
+
+    const handleLogout = () => {
+        // confirm , then true
+        if (confirm('tekan tombol oke')) {
+
+            // remove localstorage
+            localStorage.removeItem('token')
+
+            // navigate to /admin login
+            logout('/admin-login')
+            alert('Logout berhasil')
+        }
+    }
+
     return (
         <section className='bg-sky-800'>
             <div className='container flex justify-between items-center py-3'>
@@ -14,6 +30,10 @@ export default function NavbarAdmin() {
                 <ul className='flex justify-between gap-3 md:gap-10 text-white text-sm md:text-base'>
                     <li><NavLink to={'/admin/create-post'}>Create Post</NavLink></li>
                     {/* <li><NavLink to={'/admin/edit-post'}>Edit Post</NavLink></li> */}
+
+                    <li>
+                        <button className='btn btn-error btn-sm' onClick={handleLogout}>Log Out</button>
+                    </li>
                 </ul>
             </div>
         </section>
