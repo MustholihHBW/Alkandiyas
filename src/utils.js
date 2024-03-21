@@ -95,4 +95,24 @@ async function createPost(data) {
     }
 }
 
-export { getPosts, getSinglePost, login, checkAuthToken, createPost }
+// edit post
+async function editPost(data, id) {
+    try {
+        if (!data) throw new Error(`parameter data is required! in create post() function.`);
+
+        const response = await fetch(`${BASE_URL}/wp/v2/posts/${id}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'authorization': `Bearer ${localStorage.getItem('token')}`,
+            },
+            body: JSON.stringify(data),
+        });
+        return response;
+    } catch (error) {
+        console.log('Error:', error);
+    }
+}
+
+
+export { getPosts, getSinglePost, login, checkAuthToken, createPost, editPost }
