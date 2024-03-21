@@ -21,8 +21,10 @@ export default function AdminLogin() {
 
         // kalo token di storage sudah ada navigate ke admin
         if (localStorage.getItem("token")) {
-            // navigate ke admin
-            navigate('/admin')
+            // kalo bener navigate ke admin
+            if (checkAuthToken()) {
+                navigate('/admin')
+            }
         }
 
         // kalo ada, bener ga?
@@ -31,10 +33,7 @@ export default function AdminLogin() {
             navigate('/admin-login')
         }
 
-        // kalo bener navigate ke admin
-        if (checkAuthToken()) {
-            navigate('/admin')
-        }
+
 
     }
 
