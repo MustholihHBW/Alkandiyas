@@ -74,4 +74,25 @@ async function checkAuthToken() {
     }
 }
 
-export { getPosts, getSinglePost, login, checkAuthToken }
+// create post
+async function createPost(data) {
+    try {
+        if (!data) throw new Error(`parameter data is required! in create post() function.`);
+
+        data = { ...data, status: "publish" }
+
+        const response = await fetch(`${BASE_URL}/wp/v2/posts`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'authorization': `Bearer ${localStorage.getItem('token')}`,
+            },
+            body: JSON.stringify(data),
+        });
+        return response;
+    } catch (error) {
+        console.log('Error:', error);
+    }
+}
+
+export { getPosts, getSinglePost, login, checkAuthToken, createPost }

@@ -24,8 +24,8 @@ function App() {
         <Route path='/article/:id' element={<SingleArticle />} />
         <Route path='/admin-login' element={<AdminLogin />} />
         <Route path='/admin' element={<AdminDashboard />} />
-        <Route path='admin/create-post' element={<CreatePost />} />
-        <Route path='admin/edit-post' element={<EditPost />} />
+        <Route path='/admin/create-post' element={<CreatePost />} />
+        <Route path='/admin/edit-post' element={<EditPost />} />
         <Route path='/pendaftaran' element={<Pendaftaran />} />
         <Route path='/tentang-kami' element={<TentangKami />} />
         <Route path='/example' element={<Example />} />

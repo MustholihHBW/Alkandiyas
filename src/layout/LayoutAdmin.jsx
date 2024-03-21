@@ -18,23 +18,11 @@ export default function LayoutAdmin({ children }) {
             return false
         }
 
-        // kalo token di storage sudah ada navigate ke admin
-        if (localStorage.getItem("token")) {
-            // navigate ke admin
-            navigate('/admin')
-        }
-
         // kalo ada, bener ga?
         // kalo salah di navigate ke adminlogin
         if (!checkAuthToken()) {
             navigate('/admin-login')
         }
-
-        // kalo bener navigate ke admin
-        if (checkAuthToken()) {
-            navigate('/admin')
-        }
-
     }
 
     // saat mounting jalan function cek diatas

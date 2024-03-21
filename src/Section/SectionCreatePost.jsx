@@ -1,10 +1,33 @@
+import { useState } from 'react'
 import React from 'react'
+import { createPost } from '../utils'
+
 
 export default function SectionCreatePost() {
+    const [judul, setJudul] = useState('')
+    const [konten, setKonten] = useState('')
+
+    // function untuk handle submit
+    async function handleSubmit(e) {
+        e.preventDefault()
+
+        const data = {
+            title: judul,
+            content: konten,
+        }
+        try {
+            const res = await createPost(data)
+            console.log(await res.json())
+            alert('post berhasil dibuat')
+        } catch (e) {
+            console.log('Error:', e);
+        }
+    }
+
     return (
         <section className=''>
             <div className='container py-20 flex justify-center'>
-                <form action="" className='flex flex-col items-center gap-3 md:gap-5 border rounded-md py-10 bg-sky-900 w-72 md:w-96'>
+                <form onSubmit={handleSubmit} className='flex flex-col items-center gap-3 md:gap-5 border rounded-md py-10 bg-sky-900 w-72 md:w-96'>
                     <p className='font-bold text-2xl md:text-3xl text-white'>
                         Create Post
                     </p>
@@ -14,7 +37,14 @@ export default function SectionCreatePost() {
                         <label htmlFor="" className='text-lg md:text-xl text-white'>
                             Judul
                         </label>
-                        <input type="judul" placeholder='judul' className='w-48 md:w-60 border rounded py-2 px-2' />
+
+                        <input
+                            onInput={(e) => setJudul(e.target.value)}
+                            value={judul}
+                            type="judul"
+                            placeholder='judul'
+                            className='w-48 md:w-60 border rounded py-2 px-2'
+                        />
                     </div>
 
                     {/* konten artikel yang ingin dibuat */}
@@ -22,7 +52,14 @@ export default function SectionCreatePost() {
                         <label htmlFor="" className='text-lg md:text-xl text-white'>
                             Konten
                         </label>
-                        <textarea type="konten" placeholder='konten' className='w-48 md:w-60 border rounded py-2 px-2' />
+
+                        <textarea
+                            onInput={(e) => setKonten(e.target.value)}
+                            value={konten}
+                            type="konten"
+                            placeholder='konten'
+                            className='w-48 md:w-60 border rounded py-2 px-2'
+                        />
                     </div>
 
                     {/* button post */}
