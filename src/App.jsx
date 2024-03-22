@@ -13,6 +13,7 @@ import TentangKami from './pages/TentangKami'
 import Example from "./pages/Example"
 import KegiatanHarian from './pages/KegiatanHarian'
 import Sejarah from './pages/Sejarah'
+import ProfilPengasuh from './pages/ProfilPengasuh'
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
         <Route path='/kegiatan-harian' element={<KegiatanHarian />} />
         <Route path='/kegiatan-rutin' element={<KegiatanHarian />} />
         <Route path='/sejarah' element={<Sejarah />} />
+        <Route path='/profil-pengasuh' element={<ProfilPengasuh />} />
       </Routes>
     </BrowserRouter>
   )
