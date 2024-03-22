@@ -114,5 +114,24 @@ async function editPost(data, id) {
     }
 }
 
+// delete post
+async function deletePost(id) {
+    try {
+        if (!id) throw new Error('parameter id is required! in deletePost() function.');
 
-export { getPosts, getSinglePost, login, checkAuthToken, createPost, editPost }
+        const response = await fetch(`${BASE_URL}/wp/v2/posts/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'authorization': `Bearer ${localStorage.getItem('token')}`,
+            },
+        });
+        const data = await response.json()
+        return data;
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+
+
+export { getPosts, getSinglePost, login, checkAuthToken, createPost, editPost, deletePost }

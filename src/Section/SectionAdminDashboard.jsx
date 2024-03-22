@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import { getPosts } from '../utils'
+import { getPosts, deletePost } from '../utils'
 import Pagination from '../components/Pagination';
 
 
@@ -11,11 +11,23 @@ export default function SectionAdminDashboard() {
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPage, setTotalPage] = useState(0);
 
+
     async function fetchdata() {
         const data = await getPosts(search, currentPage);
         if (data !== false) {
             setPosts(data.data);
             setTotalPage(data.totalPage)
+        }
+    }
+
+
+    async function handleDelete(id) {
+        if (
+            confirm("apakah anda yakin?")
+        ) {
+            const data = await deletePost(id)
+            alert("data berhasil dihapus " + data.title.rendered)
+            fetchdata()
         }
     }
 
@@ -68,7 +80,7 @@ export default function SectionAdminDashboard() {
                                                     </NavLink>
                                                 </td>
                                                 <td>
-                                                    <button className='bg-red-500 rounded p-1 md:p-2 text-sm md:text-base w-14 md:w-20'>
+                                                    <button onClick={() => handleDelete(item.id)} className='bg-red-500 rounded p-1 md:p-2 text-sm md:text-base w-14 md:w-20'>
                                                         Delete
                                                     </button>
                                                 </td>
