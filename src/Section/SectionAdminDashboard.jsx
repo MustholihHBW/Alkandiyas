@@ -90,6 +90,9 @@ export default function SectionAdminDashboard() {
                                 }) : "kosong"}
 
                     </table>
+
+                    {/* pagination */}
+                    <Pagination currentPage={currentPage} totalPage={totalPage} handlePrev={handlePrev} handleNext={handleNext} />
                 </div>
             </div>
 
