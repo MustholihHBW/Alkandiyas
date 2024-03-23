@@ -54,13 +54,25 @@ export default function SectionAdminDashboard() {
     }, [currentPage])
 
     return (
-        <section className=''>
-            <div className='container py-5'>
-                <p className='font-bold text-base md:text-xl mb-5'>
-                    My Post
-                </p>
+        <section>
+            <div className='container flex flex-col py-10 gap-5'>
+                <div className='container flex justify-between items-center'>
+                    <p className='font-bold text-base md:text-xl mb-5'>
+                        My Post
+                    </p>
 
-                <div className="mb-5 text-sm md:text-base">
+                    {/* search */}
+                    <div className='flex'>
+                        <form onSubmit={handleSearch}>
+                            <input onInput={(e) => setSearch(e.target.value)} type="search" placeholder='cari' className='border rounded py-2 px-2 w-24 md:w-48' />
+                            <button className='bg-green-500 rounded py-2 px-2 text-white text-sm md:text-base w-10 md:w-20'>
+                                Cari
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <div className="container mb-5 text-sm md:text-base">
                     <table className='w-full flex flex-col gap-3'>
 
 
