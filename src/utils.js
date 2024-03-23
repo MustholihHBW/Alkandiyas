@@ -132,6 +132,30 @@ async function deletePost(id) {
     }
 }
 
+// create media item
+async function createMediaItem(data) {
+    try {
+        if (!data) throw new Error('parameter data is required! in createMediaItem() function.');
+
+        const form = new FormData();
+        form.append('file', data);
+
+        const options = {
+            method: 'POST',
+            headers: {
+                'authorization': `Bearer ${localStorage.getItem('token')}`,
+            },
+        }
+
+        options.body = form;
+        const response = await fetch(`${BASE_URL}/wp/v2/media`, options);
+        const res = await response.json();
+        return res;
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
 
 
-export { getPosts, getSinglePost, login, checkAuthToken, createPost, editPost, deletePost }
+
+export { getPosts, getSinglePost, login, checkAuthToken, createPost, editPost, deletePost, createMediaItem }
