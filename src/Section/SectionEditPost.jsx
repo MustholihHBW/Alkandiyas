@@ -1,13 +1,45 @@
 import React, { useState, useEffect } from 'react'
-import { editPost, getSinglePost } from '../utils'
+import { editPost, getSinglePost, createMediaItem } from '../utils'
 import { useParams } from 'react-router-dom'
 
+// Require Editor CSS files.
+import 'froala-editor/css/froala_style.min.css';
+import 'froala-editor/css/froala_editor.pkgd.min.css';
+import 'froala-editor/js/plugins.pkgd.min.js';
+
+import FroalaEditorComponent from 'react-froala-wysiwyg';
 
 export default function SectionEditPost() {
     const [judul, setJudul] = useState('')
     const [konten, setKonten] = useState('')
+    const [featuredMedia, setFeaturedMedia] = useState('')
+    const [featuredMediaId, setFeaturedMediaId] = useState(null)
 
     const { id } = useParams()
+
+    const BASE_URL = 'https://blog-fe-batch5.neuversity.id/blog-fe-batch5/wp-json';
+
+    const config = {
+        placeholderText: "Edit Your Content Here!",
+        height: 300,
+        imageUploadURL: `${BASE_URL}/wp/v2/media`,
+        imageUploadMethod: 'POST',
+        imageAllowedTypes: ['jpeg', 'jpg', 'png'],
+        requestHeaders: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`
+        },
+    }
+
+    // handle fatured media
+    const handleFeaturedMedia = async (e) => {
+        // upload image to media
+        const file = e.target.files[0]
+        setFeaturedMedia(e.target.value)
+
+        const response = await createMediaItem(file)
+
+        setFeaturedMediaId(response.id)
+    }
 
     // function untuk handle submit
     async function handleSubmit(e) {
@@ -16,6 +48,7 @@ export default function SectionEditPost() {
         const data = {
             title: judul,
             content: konten,
+            featured_media: featuredMediaId
         }
         try {
             const res = await editPost(data, id)
@@ -46,6 +79,22 @@ export default function SectionEditPost() {
                         Edit Post
                     </p>
 
+                    {/* featured media */}
+                    <div className='flex flex-col'>
+                        <label className='text-lg md:text-xl text-white'>
+                            Gambar
+                        </label>
+
+                        <input
+
+                            onInput={handleFeaturedMedia}
+                            value={featuredMedia}
+                            type="file"
+                            placeholder='judul'
+                            className='w-48 md:w-60 border rounded py-2 px-2'
+                        />
+                    </div>
+
                     {/* edit judul artikel */}
                     <div className='flex flex-col'>
                         <label htmlFor="" className='text-lg md:text-xl text-white'>
@@ -62,17 +111,15 @@ export default function SectionEditPost() {
                     </div>
 
                     {/* edit konten artikel */}
-                    <div className='flex flex-col mb-3 md:mb-5'>
+                    <div className='flex flex-col mb-3 md:mb-5 w-48 md:w-60'>
                         <label htmlFor="" className='text-lg md:text-xl text-white'>
                             Konten
                         </label>
 
-                        <textarea
-                            onInput={(e) => setKonten(e.target.value)}
-                            value={konten}
-                            type="konten"
-                            placeholder='konten'
-                            className='w-48 md:w-60 border rounded py-2 px-2'
+                        <FroalaEditorComponent tag='textarea'
+                            onModelChange={(model) => setKonten(model)}
+                            config={config}
+                            model={konten}
                         />
                     </div>
 
