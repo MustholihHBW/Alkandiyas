@@ -31,12 +31,12 @@ export default function LayoutAdmin({ children }) {
     }, [location.pathname])
 
     return (
-        <>
+        <div className='min-h-[100dvh] flex flex-col'>
             <NavbarAdmin />
             <main>
                 {children}
             </main>
             <FooterAdmin />
-        </>
+        </div>
     )
 }
