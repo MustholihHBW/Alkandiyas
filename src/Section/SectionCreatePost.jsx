@@ -20,7 +20,7 @@ export default function SectionCreatePost() {
 
     const config = {
         placeholderText: "Edit Your Content Here!",
-        height: 300,
+        height: 50,
         imageUploadURL: `${BASE_URL}/wp/v2/media`,
         imageUploadMethod: 'POST',
         imageAllowedTypes: ['jpeg', 'jpg', 'png'],
