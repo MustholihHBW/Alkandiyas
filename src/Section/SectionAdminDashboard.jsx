@@ -72,10 +72,8 @@ export default function SectionAdminDashboard() {
                     </div>
                 </div>
 
-                <div className="container mb-5 text-sm md:text-base">
+                <div className="container flex flex-col items-center mb-5 text-sm md:text-base">
                     <table className='w-full flex flex-col gap-3'>
-
-
                         {
                             // jika data post lebih dari 0, maka tampilkan data post
                             posts.length > 0
