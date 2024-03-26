@@ -27,12 +27,12 @@ export default function NavbarAdmin() {
                     </NavLink>
                 </p>
 
-                <ul className='flex justify-between gap-3 md:gap-10 text-white text-sm md:text-base'>
+                <ul className='flex justify-between items-center gap-3 md:gap-10 text-white text-sm md:text-base'>
                     <li><NavLink to={'/admin/create-post'}>Create Post</NavLink></li>
                     {/* <li><NavLink to={'/admin/edit-post'}>Edit Post</NavLink></li> */}
 
                     <li>
-                        <button className='btn btn-error btn-sm' onClick={handleLogout}>Log Out</button>
+                        <button className='btn btn-error btn-xs md:btn-sm text-white text-sm md:text-base' onClick={handleLogout}>Log Out</button>
                     </li>
                 </ul>
             </div>
