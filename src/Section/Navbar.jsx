@@ -20,11 +20,40 @@ export default function Navbar() {
 
                 {/* menu navbar */}
                 <div className="">
-                    <img src={MenuIcon} alt="" className="md:hidden h-10 w-10" />
-                    <ul className="hidden gap-10 text-white md:flex justify-between">
+
+                    {/* dropdown menu */}
+                    <div className="md:hidden dropdown dropdown-bottom dropdown-end">
+                        <div tabIndex={0} role="button" className="btn btn-square m-1 rounded-md">
+                            <img src={MenuIcon} alt="" className="md:hidden h-10 w-10" />
+                        </div>
+                        <ul tabIndex={0} className="dropdown-content z-[1] mt-3 menu p-2 shadow bg-base-100 rounded-box w-52">
+                            <li><NavLink to={'/'}>Beranda</NavLink></li>
+                            <li><NavLink to={'/pendaftaran'}>Pendaftaran</NavLink></li>
+                            <li><NavLink to={'/tentang-kami'}>Tentang kami</NavLink></li>
+                            <li><NavLink to={'/article'}>Artikel</NavLink></li>
+                        </ul>
+                    </div>
+
+                    <ul className="hidden gap-10 text-white md:flex justify-between items-center">
                         <li><NavLink to={'/'}>Beranda</NavLink></li>
-                        <li><NavLink to={'/pendaftaran'}>Pendaftaran</NavLink></li>
-                        <li><NavLink to={'/tentang-kami'}>Tentang kami</NavLink></li>
+
+                        {/* kegiatan */}
+                        <div className="dropdown dropdown-hover">
+                            <div tabIndex={0} role="button" className="m-1">Kegiatan</div>
+                            <ul tabIndex={0} className="dropdown-content z-[1] mt-6 menu p-2 shadow bg-sky-900 rounded w-52">
+                                <li><NavLink to={'/sejarah'}>Sejarah</NavLink></li>
+                                <li><NavLink to={'/profil-pengasuh'}>Dewan Pengasuh</NavLink></li>
+                            </ul>
+                        </div>
+
+                        {/* tentang kami */}
+                        <div className="dropdown dropdown-hover">
+                            <div tabIndex={0} role="button" className="m-1">Tentang Kami</div>
+                            <ul tabIndex={0} className="dropdown-content z-[1] menu mt-6 p-2 shadow bg-sky-900 rounded w-52">
+                                <li><NavLink to={'/sejarah'}>Sejarah</NavLink></li>
+                                <li><NavLink to={'/profil-pengasuh'}>Dewan Pengasuh</NavLink></li>
+                            </ul>
+                        </div>
                         <li><NavLink to={'/article'}>Artikel</NavLink></li>
                     </ul>
                 </div>
