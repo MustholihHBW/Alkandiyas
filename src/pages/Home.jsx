@@ -13,8 +13,13 @@ export default function Home() {
         <LayoutClient >
             <SectionHero />
             <SectionKurikulum />
-            <SectionHarian />
-            <SectionRutin />
+            <div className='bg-sky-900'>
+                <p className='font-bold text-white text-2xl text-center'>
+                    Kegiatan Santri
+                </p>
+                <SectionHarian />
+                <SectionRutin />
+            </div>
         </LayoutClient>
     )
 }
