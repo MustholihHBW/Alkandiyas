@@ -62,7 +62,7 @@ export default function SectionCreatePost() {
     return (
         <section className=''>
             <div className='container py-20 flex justify-center'>
-                <form onSubmit={handleSubmit} className='flex flex-col items-center gap-3 md:gap-5 border rounded-md py-10 bg-sky-900 w-72 md:w-96'>
+                <form onSubmit={handleSubmit} className='flex flex-col items-center gap-3 md:gap-5 border rounded-md py-10 bg-sky-900 w-72 md:w-1/2'>
                     <p className='font-bold text-2xl md:text-3xl text-white'>
                         Create Post
                     </p>
