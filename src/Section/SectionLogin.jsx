@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { login } from '../utils'
 import { useNavigate } from 'react-router-dom'
+import Alkandiyas from '../assets/Alkandiyas.svg'
 
 export default function SectionLogin() {
     const navigate = useNavigate()
@@ -36,7 +37,7 @@ export default function SectionLogin() {
                 <form onSubmit={handleLogin} className='flex flex-col items-center py-10 gap-3 md:gap-5 bg-sky-900 border w-72 md:w-96 rounded-md'>
 
                     {/* logo alkandiyas */}
-                    <img src="https://picsum.photos/100/100" alt="" className='rounded-full h-20 w-20 md:h-24 md:w-24' />
+                    <img src={Alkandiyas} alt="" className='rounded-full h-20 w-20 md:h-24 md:w-24' />
                     <p className='font-bold text-2xl md:text-3xl text-white'>
                         Login
                     </p>
