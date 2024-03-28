@@ -1,3 +1,4 @@
+// mengambil data dar endpoint
 const BASE_URL = 'https://blog-fe-batch5.neuversity.id/blog-fe-batch5/wp-json';
 const AUTHOR_ID = 5;
 

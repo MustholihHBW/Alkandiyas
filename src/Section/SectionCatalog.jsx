@@ -10,6 +10,7 @@ export default function SectionCatalog() {
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPage, setTotalPage] = useState(0);
 
+    // fetching data
     async function fetchdata() {
         const data = await getPosts(search, currentPage);
         if (data !== false) {
