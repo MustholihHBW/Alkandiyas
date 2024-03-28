@@ -74,7 +74,7 @@ export default function SectionEditPost() {
     return (
         <section>
             <div className='container py-20 flex justify-center'>
-                <form onSubmit={handleSubmit} className='flex flex-col items-center gap-3 md:gap-5 w-72 md:w-96 border rounded-md py-10 bg-sky-900'>
+                <form onSubmit={handleSubmit} className='flex flex-col items-center gap-3 md:gap-5 w-72 md:w-1/2 border rounded-md py-10 bg-sky-900'>
                     <p className='font-bold text-2xl md:text-3xl text-white'>
                         Edit Post
                     </p>
