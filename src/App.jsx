@@ -15,6 +15,7 @@ import KegiatanHarian from './pages/KegiatanHarian'
 import Sejarah from './pages/Sejarah'
 import ProfilPengasuh from './pages/ProfilPengasuh'
 import KurikulumPondok from './pages/KurikulumPondok'
+import Fasilitas from './pages/Fasilitas'
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
         <Route path='/sejarah' element={<Sejarah />} />
         <Route path='/profil-pengasuh' element={<ProfilPengasuh />} />
         <Route path='/kurikulum-pondok' element={<KurikulumPondok />} />
+        <Route path='/fasilitas-pondok' element={<Fasilitas />} />
       </Routes>
     </BrowserRouter>
   )

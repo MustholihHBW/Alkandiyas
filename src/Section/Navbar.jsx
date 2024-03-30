@@ -37,14 +37,18 @@ export default function Navbar() {
                     </div>
 
                     <ul className="hidden gap-10 text-white md:flex justify-between items-center">
+                        {/* Beranda */}
                         <li><NavLink to={'/'}>Beranda</NavLink></li>
+
+                        {/* Pendaftaran */}
+                        <li><NavLink to={''}>Pendaftaran</NavLink></li>
 
                         {/* kegiatan */}
                         <div className="dropdown dropdown-hover">
                             <div tabIndex={0} role="button" className="m-1">Kegiatan</div>
                             <ul tabIndex={0} className="dropdown-content z-[1] mt-6 menu p-2 shadow bg-sky-900 rounded w-52">
-                                <li><NavLink to={'/sejarah'}>Sejarah</NavLink></li>
-                                <li><NavLink to={'/profil-pengasuh'}>Dewan Pengasuh</NavLink></li>
+                                <li><NavLink to={'/kegiatan-harian'}>Kegiatan Harian</NavLink></li>
+                                <li><NavLink to={'/kegiatan-rutin'}>Kegiatan Rutin</NavLink></li>
                             </ul>
                         </div>
 
@@ -54,9 +58,15 @@ export default function Navbar() {
                             <ul tabIndex={0} className="dropdown-content z-[1] menu mt-6 p-2 shadow bg-sky-900 rounded w-52">
                                 <li><NavLink to={'/sejarah'}>Sejarah</NavLink></li>
                                 <li><NavLink to={'/profil-pengasuh'}>Dewan Pengasuh</NavLink></li>
+                                <li><NavLink to={'/kurikulum-pondok'}>Kurikulum</NavLink></li>
                             </ul>
                         </div>
+
+                        {/* Artikel */}
                         <li><NavLink to={'/article'}>Artikel</NavLink></li>
+
+                        {/* Fasilitas */}
+                        <li><NavLink to={'/fasilitas-pondok'}>Fasiltas</NavLink></li>
                     </ul>
                 </div>
 
